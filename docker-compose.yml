@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  pomodash-mcp-server:
+    build: .
+    image: pomodash-mcp-server:latest
+    container_name: pomodash-mcp-server
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - POMODASH_API_URL=https://mcp.pomodash.mindsnapz.de
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+    # MCP uses stdio, so no ports needed
+    # ports:
+    #   - "3000:3000"
+    volumes:
+      # Optional: mount logs directory
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "node", "--version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
