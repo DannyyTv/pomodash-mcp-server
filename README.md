@@ -9,16 +9,17 @@ A Model Context Protocol (MCP) server that connects AI assistants to PomoDash fo
 
 ## Features
 
-- **Task Management**: Create, list, update, and delete tasks
+- **Task Management**: Create, list, update, and delete tasks with the [PomoDash productivity app](https://pomodash.mindsnapz.de)
 - **Notes System**: Create and manage notes linked to tasks/projects
-- **Categories & Projects**: Organize your work with categories and projects
+- **Categories & Projects**: Organize your work with categories and projects  
 - **Secure Authentication**: API key-based authentication with rate limiting
 - **Docker Support**: Easy deployment with Docker and Docker Compose
+- **AI Integration**: Works seamlessly with Claude Desktop, Windsurf, VS Code, and other MCP clients
 
 ## Prerequisites
 
-- **Premium PomoDash Account**: MCP integration requires a premium subscription
-- **API Key**: Generate an API key in PomoDash Settings → API Keys
+- **Premium PomoDash Account**: MCP integration requires a [premium subscription](https://pomodash.mindsnapz.de/pricing)
+- **API Key**: Generate an API key in [PomoDash Settings](https://pomodash.mindsnapz.de/settings) → API Keys
 - **Node.js 20+** (for local development) or **Docker** (for containerized deployment)
 
 ## Quick Start with Docker Desktop
@@ -191,7 +192,7 @@ If you prefer not to use Docker:
 
 1. **Generate PomoDash API Key**
    - Open [PomoDash](https://pomodash.mindsnapz.de) → Settings → API Keys
-   - Click "Generate New Key" (Premium account required)
+   - Click "Generate New Key" ([Premium account required](https://pomodash.mindsnapz.de/pricing))
    - Copy the key (format: `pmk_...`)
 
 2. **Run with Docker**
@@ -313,9 +314,22 @@ docker-compose up
 - **Use environment variables** for sensitive data
 - **Keep Docker images updated** for security patches
 
+## What is PomoDash?
+
+[PomoDash](https://pomodash.mindsnapz.de) is a modern productivity application that combines the Pomodoro Technique with advanced task management. Built for professionals who want to:
+
+- **Focus Better**: Use proven Pomodoro timers to maintain concentration
+- **Organize Tasks**: Advanced project and category management  
+- **Track Progress**: Detailed analytics and productivity insights
+- **Stay Motivated**: Gamification elements and streak tracking
+- **Work Anywhere**: Cross-platform with real-time sync
+
+[Try PomoDash Free →](https://pomodash.mindsnapz.de/register)
+
 ## Support
 
 For issues related to:
 - **MCP Server**: Check this repository's issues
-- **PomoDash API**: Contact PomoDash support
+- **PomoDash App**: Visit [PomoDash Support](https://pomodash.mindsnapz.de/support)
+- **Account & Billing**: [Contact PomoDash](https://pomodash.mindsnapz.de/contact)
 - **MCP Protocol**: See [Model Context Protocol docs](https://modelcontextprotocol.io/)
