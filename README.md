@@ -5,6 +5,7 @@ A Model Context Protocol (MCP) server that connects AI assistants to PomoDash fo
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://hub.docker.com/r/mcp/pomodash)
 [![MCP](https://img.shields.io/badge/MCP-Compatible-green)](https://modelcontextprotocol.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/DannyyTv/pomodash-mcp-server)
 
 ## Features
 
