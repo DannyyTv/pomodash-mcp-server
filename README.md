@@ -14,7 +14,7 @@ A Model Context Protocol (MCP) server that connects AI assistants to PomoDash fo
 - **Categories & Projects**: Organize your work with categories and projects  
 - **Secure Authentication**: API key-based authentication with rate limiting
 - **Docker Support**: Easy deployment with Docker and Docker Compose
-- **AI Integration**: Works seamlessly with Claude Desktop, Windsurf, VS Code, and other MCP clients
+- **AI Integration**: Works with all MCP-compatible clients (Claude Desktop, VS Code, Cursor, etc.)
 
 ## Prerequisites
 
@@ -107,20 +107,11 @@ POMODASH_API_KEY=pmk_your_key node dist/index.js
 npm start
 ```
 
-## Connect to Claude Desktop or Windsurf
+## MCP Client Configuration
 
-Once your Docker container is running, you need to connect it to your AI assistant.
+### Docker Configuration (All MCP Clients)
 
-### For Claude Desktop Users
-
-1. **Find your Claude Desktop config file**:
-   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-   - **Mac**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-   - **Linux**: `~/.config/Claude/claude_desktop_config.json`
-
-2. **Open the config file** with any text editor
-
-3. **Add this configuration** (replace the path with your actual path):
+Add this to your MCP client's configuration file:
 
 ```json
 {
@@ -128,41 +119,26 @@ Once your Docker container is running, you need to connect it to your AI assista
     "pomodash": {
       "command": "docker",
       "args": [
-        "run", "--rm", "-i", 
-        "--env-file", "/full/path/to/pomodash-mcp-server/.env",
-        "pomodash-mcp-server"
-      ],
-      "cwd": "/full/path/to/pomodash-mcp-server"
+        "run", "--rm", "-i",
+        "-e", "POMODASH_API_KEY=pmk_your_api_key_here",
+        "mcp/pomodash"
+      ]
     }
   }
 }
 ```
 
-4. **Replace `/full/path/to/pomodash-mcp-server`** with the actual path to your folder
-5. **Save the file** and **restart Claude Desktop**
-6. **Test it**: Ask Claude "What tasks do I have in PomoDash?"
+### Configuration File Locations
 
-### For Windsurf Users
+**Claude Desktop:**
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+- **Mac**: `~/Library/Application Support/Claude/claude_desktop_config.json` 
+- **Linux**: `~/.config/Claude/claude_desktop_config.json`
 
-1. **Open Windsurf** and go to settings
-2. **Find MCP Settings** (usually in Extensions or AI settings)
-3. **Add a new MCP server** with these settings:
-   - **Name**: `pomodash`
-   - **Command**: `docker`
-   - **Arguments**: 
-     ```
-     run
-     --rm
-     -i
-     --env-file
-     /full/path/to/pomodash-mcp-server/.env
-     pomodash-mcp-server
-     ```
-   - **Working Directory**: `/full/path/to/pomodash-mcp-server`
-
-4. **Replace the path** with your actual folder location
-5. **Save and restart Windsurf**
-6. **Test it**: Ask the AI "Show me my PomoDash tasks"
+**Other MCP Clients:**
+- Most MCP clients use similar JSON configuration
+- Check your client's documentation for the exact file location
+- The configuration format above works universally
 
 ### Alternative: Local Node.js Setup (Without Docker)
 
@@ -203,9 +179,7 @@ If you prefer not to use Docker:
    ```
 
 3. **Configure AI Assistant**
-   - **Claude Desktop**: Add to `claude_desktop_config.json`
-   - **Windsurf**: Add to MCP settings
-   - **VS Code**: Configure in `.vscode/mcp.json`
+   - Add to your MCP client configuration (see examples below)
 
 ### Docker Desktop MCP Toolkit
 
