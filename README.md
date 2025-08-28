@@ -18,8 +18,8 @@ A Model Context Protocol (MCP) server that connects AI assistants to PomoDash fo
 
 ## Prerequisites
 
-- **Premium PomoDash Account**: MCP integration requires a [premium subscription](https://pomodash.mindsnapz.de/pricing)
-- **API Key**: Generate an API key in [PomoDash Settings](https://pomodash.mindsnapz.de/settings) → API Keys
+- **Premium PomoDash Account**: MCP integration requires a premium subscription
+- **API Key**: Generate an API key in PomoDash Settings → API Keys
 - **Node.js 20+** (for local development) or **Docker** (for containerized deployment)
 
 ## Quick Start with Docker Desktop
@@ -168,7 +168,7 @@ If you prefer not to use Docker:
 
 1. **Generate PomoDash API Key**
    - Open [PomoDash](https://pomodash.mindsnapz.de) → Settings → API Keys
-   - Click "Generate New Key" ([Premium account required](https://pomodash.mindsnapz.de/pricing))
+   - Click "Generate New Key" (Premium account required)
    - Copy the key (format: `pmk_...`)
 
 2. **Run with Docker**
@@ -298,12 +298,11 @@ docker-compose up
 - **Stay Motivated**: Gamification elements and streak tracking
 - **Work Anywhere**: Cross-platform with real-time sync
 
-[Try PomoDash Free →](https://pomodash.mindsnapz.de/register)
+[Try PomoDash →](https://pomodash.mindsnapz.de)
 
 ## Support
 
 For issues related to:
 - **MCP Server**: Check this repository's issues
-- **PomoDash App**: Visit [PomoDash Support](https://pomodash.mindsnapz.de/support)
-- **Account & Billing**: [Contact PomoDash](https://pomodash.mindsnapz.de/contact)
+- **PomoDash App**: Visit [PomoDash](https://pomodash.mindsnapz.de)
 - **MCP Protocol**: See [Model Context Protocol docs](https://modelcontextprotocol.io/)
