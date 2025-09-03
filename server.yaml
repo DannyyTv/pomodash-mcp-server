@@ -2,7 +2,7 @@ name: pomodash
 displayName: "PomoDash"
 description: "Connect your AI assistant to PomoDash for seamless task and project management"
 category: "productivity"
-icon: "https://mindsnapz.de/wp-content/uploads/2023/04/Logo-Icon-final-scaled.png"
+icon: "./icon-512.png"
 repository: "https://github.com/DannyyTv/pomodash-mcp-server"
 dockerfile: "Dockerfile"
 license: "MIT"
@@ -14,12 +14,12 @@ author:
   url: "https://mindsnapz.de"
 
 environment:
-  - name: "POMODASH_API_KEY"
+  - name: "pomodash.POMODASH_API_KEY"
     description: "Your PomoDash API key (generate in Settings → API Keys)"
     required: true
     secret: true
     format: "pmk_*"
-  - name: "POMODASH_API_URL"
+  - name: "pomodash.POMODASH_API_URL"
     description: "PomoDash API base URL"
     required: false
     default: "https://mcp.pomodash.mindsnapz.de"
