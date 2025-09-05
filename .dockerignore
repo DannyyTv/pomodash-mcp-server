@@ -1,0 +1,10 @@
+# Exclude local artifacts that should not be copied into the image
+node_modules/
+dist/
+.git/
+.gitignore
+Dockerfile
+Dockerfile.*
+docker-compose.yml
+README.md
+servers/

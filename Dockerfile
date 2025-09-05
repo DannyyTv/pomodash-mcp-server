@@ -1,13 +1,18 @@
 # Use official Node.js runtime as base image
-FROM node:22-alpine
+## ---------- Builder stage ----------
+FROM node:22-alpine AS builder
 
 # Set working directory
 WORKDIR /app
 
+# Ensure dev dependencies are installed for the build
+ENV NODE_ENV=development
+
 # Copy package files
 COPY package*.json ./
 
-# Install all dependencies (including dev dependencies for build)
+# Install all dependencies including devDependencies for build (TypeScript)
+# Explicitly include dev deps to avoid environment-specific omissions
 RUN npm ci
 
 # Copy source code
@@ -16,12 +21,23 @@ COPY . .
 # Build the TypeScript code
 RUN npm run build
 
-# Remove dev dependencies to reduce image size
-RUN npm prune --production
+## ---------- Runtime stage ----------
+FROM node:22-alpine AS runtime
+
+# Set working directory
+WORKDIR /app
+
+# Copy only package files first and install production deps
+COPY package*.json ./
+ENV NODE_ENV=production
+RUN npm ci --omit=dev
+
+# Copy built artifacts from builder
+COPY --from=builder /app/dist ./dist
 
 # Create non-root user for security
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S mcp -u 1001
+RUN addgroup -g 1001 -S nodejs \
+    && adduser -S mcp -u 1001
 
 # Change to non-root user
 USER mcp
