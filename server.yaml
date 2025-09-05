@@ -2,7 +2,7 @@ name: pomodash
 displayName: "PomoDash"
 description: "Connect your AI assistant to PomoDash for seamless task and project management"
 category: "productivity"
-icon: "./icon-512.png"
+icon: "https://mindsnapz.de/wp-content/uploads/2025/09/PomoDash-Logo-512-x-512-px.png"
 repository: "https://github.com/DannyyTv/pomodash-mcp-server"
 dockerfile: "Dockerfile"
 license: "MIT"
